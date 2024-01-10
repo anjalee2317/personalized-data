@@ -7,4 +7,6 @@ public interface ProductMetadataRepository extends JpaRepository<ProductMetadata
 
     ProductMetadata findByProductId(String productId);
 
+    boolean existsByProductId(String productId);
+
 }
