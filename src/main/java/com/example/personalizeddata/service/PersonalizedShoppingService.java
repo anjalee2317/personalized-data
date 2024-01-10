@@ -51,11 +51,6 @@ public class PersonalizedShoppingService {
     public Page<ProductInfoDTO> getProductsByShopper(String shopperId, String category, String brand, int limit, int page, int size) {
 
         try {
-            // Set a maximum limit of 100
-            int maxLimit = 100;
-            if (limit > maxLimit) {
-                limit = maxLimit;
-            }
             Page<ShopperProduct> shelf = shopperProductRepository.findByShopperIdAndFilter(shopperId, category, brand, PageRequest.of(page, Math.min(size, limit)));
 
             return shelf
@@ -74,11 +69,6 @@ public class PersonalizedShoppingService {
     public Page<ShopperInfoDTO> getShoppersByProduct(String productId, int limit, int page, int size) {
 
         try {
-            // Set a maximum limit of 1000
-            int maxLimit = 1000;
-            if (limit > maxLimit) {
-                limit = maxLimit;
-            }
             Page<ShopperProduct> shoppers = shopperProductRepository.findByProductId(productId, PageRequest.of(page, Math.min(size, limit)));
 
             return shoppers

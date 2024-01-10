@@ -22,3 +22,5 @@ Implemented following interfaces on Personalized data API
 ●   receiveProductMetadata
 
 ## Postman collection is attached under /resources for testing purposes
+
+# Swagger API Documentation - http://localhost:8080/swagger-ui/index.htm
