@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "420a39bb-da79-4d61-aadb-3ddffa962d90",
+		"name": "Personalized Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21680843",
+		"_collection_link": "https://orange-capsule-870022.postman.co/workspace/API-Test~5bb34e59-9581-464c-b64e-f4bfbaaf6363/collection/21680843-420a39bb-da79-4d61-aadb-3ddffa962d90?action=share&source=collection_link&creator=21680843"
+	},
+	"item": [
+		{
+			"name": "Receive Shopper Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"shopperId\": \"S-1000\",\r\n \"shelf\": [\r\n   {\r\n     \"productId\": \"MB-2093193398\",\r\n     \"relevancyScore\": 31.089209569320897\r\n   },\r\n   {\r\n     \"productId\": \"BB-2144746855\",\r\n     \"relevancyScore\": 55.16626010671777\r\n   },\r\n   {\r\n     \"productId\": \"MD-543564697\",\r\n     \"relevancyScore\": 73.01492966268303\r\n   }\r\n ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/internal/data/receiveShopperData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"internal",
+						"data",
+						"receiveShopperData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Receive Product Metadata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"productId\": \"MB-2093193398\",\r\n        \"category\": \"Mens\",\r\n        \"brand\": \"Adidas\"\r\n    },\r\n    {\r\n        \"productId\": \"BB-2144746855\",\r\n        \"category\": \"Babies\",\r\n        \"brand\": \"Babyom\"\r\n    },\r\n    {\r\n        \"productId\": \"MD-543564697\",\r\n        \"category\": \"Women\",\r\n        \"brand\": \"Jennie\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/internal/data/receiveProductMetadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"internal",
+						"data",
+						"receiveProductMetadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products By Shopper",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/productsByShopper?shopperId=S-1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"productsByShopper"
+					],
+					"query": [
+						{
+							"key": "shopperId",
+							"value": "S-1000"
+						},
+						{
+							"key": "category",
+							"value": "Babies",
+							"disabled": true
+						},
+						{
+							"key": "brand",
+							"value": "Babyom",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "12",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shopper By Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/shopperByProduct?productId=BB-2144746855",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"shopperByProduct"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "BB-2144746855"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
