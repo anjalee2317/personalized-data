@@ -1,5 +1,6 @@
-package com.example.personalizeddata.model;
+package com.example.personalizeddata.dto;
 
+import com.example.personalizeddata.model.ShopperProduct;
 import lombok.Data;
 
 import java.util.List;

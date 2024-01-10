@@ -1,7 +1,7 @@
 package com.example.personalizeddata.controller;
 
-import com.example.personalizeddata.model.ProductMetadataRequest;
-import com.example.personalizeddata.model.ShopperDataRequest;
+import com.example.personalizeddata.dto.ProductMetadataRequest;
+import com.example.personalizeddata.dto.ShopperDataRequest;
 import com.example.personalizeddata.service.PersonalizedShoppingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,5 +1,7 @@
 package com.example.personalizeddata.controller;
 
+import com.example.personalizeddata.dto.ProductInfoDTO;
+import com.example.personalizeddata.dto.ShopperInfoDTO;
 import com.example.personalizeddata.service.PersonalizedShoppingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
