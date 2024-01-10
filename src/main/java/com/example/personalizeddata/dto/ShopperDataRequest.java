@@ -7,8 +7,10 @@ import java.util.List;
 
 @Data
 public class ShopperDataRequest {
+
     private String shopperId;
     private List<ShopperProduct> shelf;
+
 }
 
 

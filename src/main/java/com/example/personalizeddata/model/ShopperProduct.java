@@ -10,15 +10,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name= "shopper_product", schema = "personalizedshopping")
+@Table(name = "shopper_product", schema = "personalizedshopping")
 public class ShopperProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String productId;
     private String shopperId;
+    private String productId;
     private double relevancyScore;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId", referencedColumnName = "productId", insertable = false, updatable = false)
+    private ProductMetadata productMetadata;
 
 }
