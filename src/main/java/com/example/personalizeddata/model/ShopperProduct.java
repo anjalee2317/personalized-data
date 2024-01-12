@@ -18,11 +18,13 @@ public class ShopperProduct {
     private Long id;
 
     private String shopperId;
+
+    @Column(name = "product_id")
     private String productId;
     private double relevancyScore;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productId", referencedColumnName = "productId", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id", insertable = false, updatable = false)
     private ProductMetadata productMetadata;
 
 }

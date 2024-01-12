@@ -13,7 +13,15 @@ public interface ShopperProductRepository extends JpaRepository<ShopperProduct, 
 
     List<ShopperProduct> findByShopperId(String shopperId);
 
-    Page<ShopperProduct> findByProductId(String productId, Pageable pageable);
+//    Page<ShopperProduct> findByProductId(String productId, Pageable pageable);
+
+    @Query("SELECT sp FROM ShopperProduct sp " +
+            "WHERE sp.id IN (" +
+            "   SELECT MIN(sp1.id) FROM ShopperProduct sp1 " +
+            "   WHERE sp1.productId = :productId " +
+            "   GROUP BY sp1.shopperId)")
+    Page<ShopperProduct> findByProductId(
+            @Param("productId") String productId, Pageable pageable);
 
     @Query("SELECT sp FROM ShopperProduct sp " +
             "JOIN FETCH sp.productMetadata pm " +
