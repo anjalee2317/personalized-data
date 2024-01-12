@@ -21,16 +21,14 @@ public class DataTeamController {
 
     @PostMapping("/receiveShopperData")
     public void receiveShopperData(@RequestBody List<ShopperDataRequest> shopperDataRequests) {
-        shopperDataRequests.forEach(request ->
-                shoppingService.receiveShopperData(request.getShopperId(), request.getShelf())
-        );
+
+        shoppingService.receiveShopperData(shopperDataRequests);
     }
 
     @PostMapping("/receiveProductMetadata")
     public void receiveProductMetadata(@RequestBody List<ProductMetadataRequest> productMetadataRequests) {
-        productMetadataRequests.forEach(request ->
-                shoppingService.receiveProductMetadata(request.getProductId(), request.getCategory(), request.getBrand())
-        );
+
+        shoppingService.receiveProductMetadata(productMetadataRequests);
     }
 }
 
